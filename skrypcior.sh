@@ -1,4 +1,5 @@
 #!/bin/bash
+#asdadsad
 DATE()
 {
 data=$(date)
