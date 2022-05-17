@@ -32,3 +32,16 @@ then
 LOGS
 fi
 
+if [ "$1" == "--help" ]
+then
+echo "Dostepne opcje:"
+echo "--date | Wyswietla obecna date."
+echo "--logs [ilosc] | Tworzy logi."
+echo "--help | Wyswietla to menu."
+fi
+
+if [ "$1" == "" ]
+then
+echo "Blad: Nie podano argumentu."
+echo "Wpisz --help aby zobaczyc dostepne argumenty, lub sprobuj jeszcze raz."
+fi
