@@ -1,17 +1,25 @@
 #!/bin/bash
-DATE()
-{
-data=$(date)
-echo $data;
-}
+i=1
+pierwszy=$1
+drugi=$2
 
 LOGS()
 {
-for i in {1..100..1}
+echo $pierwszy
+echo $drugi
+echo $i
+while [ $i -le $drugi ];
 do
-echo $(date) >> log${i}.txt
-echo $0 >> log${i}.txt
+echo $(date) >> log"${i}".txt
+echo $0 >> log"${i}".txt
+((i=i+1))
 done
+}
+
+DATE()
+{
+data=$(date)
+echo $data
 }
 
 if [ "$1" == "--date" ]
@@ -23,3 +31,4 @@ if [ "$1" == "--logs" ]
 then
 LOGS
 fi
+
