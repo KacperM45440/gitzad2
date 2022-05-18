@@ -6,13 +6,16 @@ drugi=$2
 CURRENT_DIR=$(pwd)
 LOGS()
 {
-echo $pierwszy
-echo $drugi
-echo $i
+if [ "$drugi" == "" ]
+then
+drugi=100
+fi
 while [ $i -le $drugi ];
 do
-echo $(date) >> log"${i}".txt
-echo $0 >> log"${i}".txt
+mkdir log"${i}"
+echo $(date) >> log"${i}"/log"${i}".txt
+basename log"${i}"/log"${i}".txt >> log"${i}"/log"${i}".txt
+echo $0 >> log"${i}"/log"${i}".txt
 ((i=i+1))
 done
 }
