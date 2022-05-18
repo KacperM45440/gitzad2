@@ -20,6 +20,23 @@ echo $0 >> log"${i}"/log"${i}".txt
 done
 }
 
+ERROR()
+{
+if [ "$drugi" == "" ]
+then
+drugi=100
+fi
+while [ $i -le $drugi ];
+do
+mkdir error"${i}"
+echo $(date) >> error"${i}"/error"${i}".txt
+basename error"${i}"/error"${i}".txt >> error"${i}"/error"${i}".txt
+echo $0 >> error"${i}"/error"${i}".txt
+((i=i+1))
+done
+}
+
+
 DATE()
 {
 data=$(date)
@@ -36,6 +53,11 @@ then
 LOGS
 fi
 
+if [ "$1" == "--error" ] || [ "$1" == "-e" ]
+then
+ERROR
+fi
+
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]
 then
 echo "Dostepne opcje:"
@@ -43,6 +65,7 @@ echo "--date/-d | Wyswietla obecna date."
 echo "--logs/-l [ilosc] | Tworzy logi."
 echo "--help/-h | Wyswietla to menu."
 echo "--init/-i | Klonuje repozytorium i robi cuda na patyku."
+echo "--error/-e | Tworzy errory."
 fi
 
 if [ "$1" == "" ]

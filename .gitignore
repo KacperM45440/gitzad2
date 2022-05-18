@@ -1,4 +1,16 @@
 log
+log*
+log**
+log***
 *log*.*
+*log**.*
+*log***.*
 *.log
-
+error
+error*
+error**
+error***
+*error*.*
+*error**.*
+*error***.*
+*.error
